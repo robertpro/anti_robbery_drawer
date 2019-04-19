@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "Anti_robbery_drawer"
+version = "0.1.0"
+description = "Application that takes a photo/video with your cellphone in case it detectes any movement with the gyroscope"
+
+license = "MIT"
+
+authors = [
+    "José Roberto Meza cabrera <robertpro01@gmail.com>"
+]
+
+readme = 'README.md'  # Markdown files are supported
+
+repository = "https://gitlab.com/robertpro01/anti_robbery_drawer"
+homepage = "https://gitlab.com/robertpro01/anti_robbery_drawer"
+
+keywords = []
+
+[tool.poetry.dependencies]
+python = "^3.7"  # Compatible python versions must be declared here
+cython = "^0.28.2"
+kivy-garden = "^0.1.4"
+plyer = "^1.4"
+opencv-python = "^4.0"
+kivy = { git = "https://github.com/kivy/kivy/", branch = "master" }
+pillow = "^6.0"
+
+[tool.poetry.dev-dependencies]
+ipython = "^7.3.0"
+buildozer = "^0.39"
+ipdb = "^0.11.0"

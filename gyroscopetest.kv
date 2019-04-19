@@ -1,0 +1,37 @@
+#:kivy 1.10.1
+
+#:import facade plyer.gyroscope
+<GyroscopeInterface>:
+    facade: facade
+    orientation: 'vertical'
+    padding: '20dp'
+    spacing: '10dp'
+    BoxLayout:
+        orientation: 'vertical'
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: 1, .1
+            Button:
+                id: enable_button
+                text: 'Enable Sensor'
+                disabled: False
+                on_release:
+                    root.enable()
+                    disable_button.disabled = not disable_button.disabled
+                    enable_button.disabled = not enable_button.disabled
+            Button:
+                id: disable_button
+                text: 'Disable Sensor'
+                disabled: True
+                on_release:
+                    root.disable()
+                    disable_button.disabled = not disable_button.disabled
+                    enable_button.disabled = not enable_button.disabled
+        BoxLayout:
+            orientation: 'vertical'
+            Label:
+                text: 'Rate of rotation'
+            Label:
+                text: 'including drift compensation'
+            Label:
+                text: str(root.z_calib) + ')'
