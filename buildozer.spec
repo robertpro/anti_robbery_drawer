@@ -75,7 +75,7 @@ osx.kivy_version = 1.9.1
 #
 
 # (bool) Indicate if the application should be fullscreen or not
-fullscreen = 0
+fullscreen = 1
 
 # (string) Presplash background color (for new android toolchain)
 # Supported formats are: #RRGGBB #AARRGGBB or one of the following names:
@@ -85,7 +85,7 @@ fullscreen = 0
 #android.presplash_color = #FFFFFF
 
 # (list) Permissions
-android.permissions = CAMERA
+android.permissions = CAMERA,RECEIVE_BOOT_COMPLETED
 
 # (int) Target Android API, should be as high as possible.
 #android.api = 27
@@ -249,7 +249,7 @@ ios.ios_deploy_branch = 1.7.0
 [buildozer]
 
 # (int) Log level (0 = error only, 1 = info, 2 = debug (with command output))
-log_level = 2
+log_level = 1
 
 # (int) Display warning if buildozer is run as root (0 = False, 1 = True)
 warn_on_root = 1

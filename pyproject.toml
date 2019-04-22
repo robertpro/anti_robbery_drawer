@@ -24,6 +24,8 @@ plyer = "^1.4"
 opencv-python = "^4.0"
 kivy = { git = "https://github.com/kivy/kivy/", branch = "master" }
 pillow = "^6.0"
+pyjnius = "^1.2"
+oscpy = "^0.4.0"
 
 [tool.poetry.dev-dependencies]
 ipython = "^7.3.0"
