@@ -9,15 +9,15 @@ authors = [
     "José Roberto Meza cabrera <robertpro01@gmail.com>"
 ]
 
-readme = 'README.md'  # Markdown files are supported
+readme = 'README.md'
 
-repository = "https://gitlab.com/robertpro01/anti_robbery_drawer"
-homepage = "https://gitlab.com/robertpro01/anti_robbery_drawer"
+repository = "https://github.com/robertpro/anti_robbery_drawer"
+homepage = "https://github.com/robertpro/anti_robbery_drawer"
 
 keywords = []
 
 [tool.poetry.dependencies]
-python = "^3.7"  # Compatible python versions must be declared here
+python = "^3.7"
 cython = "^0.28.2"
 kivy-garden = "^0.1.4"
 plyer = "^1.4"
