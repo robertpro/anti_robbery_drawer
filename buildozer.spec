@@ -85,7 +85,7 @@ fullscreen = 1
 #android.presplash_color = #FFFFFF
 
 # (list) Permissions
-android.permissions = CAMERA,RECEIVE_BOOT_COMPLETED
+android.permissions = CAMERA,WAKE_LOCK
 
 # (int) Target Android API, should be as high as possible.
 #android.api = 27
@@ -182,7 +182,7 @@ android.ant_path = /home/roberto/dev/tools/android/ant/
 
 # (bool) Indicate whether the screen should stay on
 # Don't forget to add the WAKE_LOCK permission if you set this to True
-#android.wakelock = False
+android.wakelock = True
 
 # (list) Android application meta-data to set (key=value format)
 #android.meta_data =
