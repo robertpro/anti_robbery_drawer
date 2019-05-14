@@ -1,4 +1,5 @@
-import time
+from datetime import datetime
+
 from PIL import Image
 from PIL import ImageOps
 
@@ -19,14 +20,14 @@ class CameraClick(BoxLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self._request_android_permissions()
-        self.camera = Camera(play=True, resolution=(640, 480))
+        self.camera = Camera(play=False, resolution=(640, 480))
         self.camera._camera.bind(on_texture=self.capture)
         if self.is_android():
             gyroscope.enable()
             Clock.schedule_interval(self.get_rotation, 1 / 10)
 
     def get_rotation(self, dt):
-        if self.camera.play:
+        if self.camera.play:  # Already taking photos :)
             return
         if gyroscope.rotation != (None, None, None):
             x, y, z = gyroscope.rotation
@@ -49,11 +50,11 @@ class CameraClick(BoxLayout):
 
     def _fix_android_image(self, pil_image):
         """
-        On Android, the image seems mirrored and rotated somehow, refs #32.
+        On Android, the image seems mirrored and rotated somehow, refs zbarcam #32.
         """
         if not self.is_android():
             return pil_image
-        pil_image = pil_image.rotate(90)
+        pil_image = pil_image.rotate(270)
         pil_image = ImageOps.mirror(pil_image)
         return pil_image
 
@@ -70,10 +71,11 @@ class CameraClick(BoxLayout):
         image_data = texture.pixels
         size = texture.size
         fmt = texture.colorfmt.upper()
-        timestr = time.strftime("%Y%m%d_%H%M%S")
+
+        time_str = datetime.now().strftime('%Y%m%d_%H:%M:%S.%f')[:-3]
         pil_image = Image.frombytes(mode=fmt, size=size, data=image_data)
         pil_image = self._fix_android_image(pil_image)
-        pil_image.save("IMG_{}.png".format(timestr))
+        pil_image.save("IMG_{}.png".format(time_str))
         Logger.info("Captured")
 
     def capture(self, instance):
